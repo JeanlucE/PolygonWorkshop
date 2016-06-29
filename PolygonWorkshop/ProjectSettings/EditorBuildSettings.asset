@@ -4,4 +4,12 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Szenen/Startbildschirm.unity
+  - enabled: 1
+    path: Assets/Szenen/Levelauswahl.unity
+  - enabled: 1
+    path: Assets/Szenen/Memory.unity
+  - enabled: 1
+    path: Assets/Szenen/Tischdecken.unity
