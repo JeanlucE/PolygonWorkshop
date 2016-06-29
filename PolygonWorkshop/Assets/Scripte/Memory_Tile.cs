@@ -25,12 +25,11 @@ public class Memory_Tile : MonoBehaviour {
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
         foreach(GameObject go in tiles)
         {
-            if(go.GetComponent<Memory_Tile>().open)
+            if(go.GetComponent<Memory_Tile>().open && go != this.gameObject)
             {
-                //display tiles
-                //FlipBack();
+                GameObject.FindGameObjectWithTag("Overlay").GetComponent<Overlay>().make(go.GetComponent<Memory_Tile>().titel, titel);
+                FlipBack();
                 go.GetComponent<Memory_Tile>().FlipBack();
-                return;
             }
         }
     }
