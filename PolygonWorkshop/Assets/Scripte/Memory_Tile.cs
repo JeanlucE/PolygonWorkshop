@@ -18,7 +18,8 @@ public class Memory_Tile : MonoBehaviour {
 
     public void OnClick()
     {
-        GetComponentInChildren<Text>().text = titel;
+        Text t = GetComponentInChildren<Text>();
+        t.text = titel;
         open = true;
 
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
@@ -29,6 +30,7 @@ public class Memory_Tile : MonoBehaviour {
                 //display tiles
                 //FlipBack();
                 go.GetComponent<Memory_Tile>().FlipBack();
+                return;
             }
         }
     }
