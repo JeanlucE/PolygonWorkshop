@@ -34,7 +34,7 @@ public class Levelübergang : MonoBehaviour
         GameManager.gameManager.lvl = Math.Round(GameManager.gameManager.lvl,MidpointRounding.AwayFromZero);
         
     }
-    void Awake()
+    void Start()
     {
         text.text = "Level: " + GameManager.gameManager.lvl;
     }
