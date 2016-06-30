@@ -40,8 +40,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d8bf79086da2c40b455fe7e71b59fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ep: 0
-  lvl: 0
+  ep: 1000
+  lvl: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

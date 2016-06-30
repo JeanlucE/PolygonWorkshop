@@ -529,8 +529,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 370978746}
-  SternM: {fileID: 1579010650}
-  SternT: {fileID: 0}
 --- !u!1 &764271053
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,6 +605,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 764271053}
+--- !u!1 &911600039
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 911600040}
+  - 222: {fileID: 911600042}
+  - 114: {fileID: 911600041}
+  m_Layer: 5
+  m_Name: SternT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &911600040
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911600039}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 2126006857}
+  m_RootOrder: 8
+  m_AnchorMin: {x: 0.15, y: 0.55}
+  m_AnchorMax: {x: 0.25, y: 0.7}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &911600041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911600039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 0.059, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 2800000, guid: fa42373f625cfc5469bc28dcd15cf4ef, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &911600042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911600039}
 --- !u!1 &1121677284
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,14 +772,6 @@ Prefab:
     - target: {fileID: 410680, guid: 92dfd50dac2c8a64e954ffa44245a8e8, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11443676, guid: 92dfd50dac2c8a64e954ffa44245a8e8, type: 2}
-      propertyPath: ep
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 11443676, guid: 92dfd50dac2c8a64e954ffa44245a8e8, type: 2}
-      propertyPath: lvl
-      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92dfd50dac2c8a64e954ffa44245a8e8, type: 2}
@@ -1085,7 +1142,7 @@ GameObject:
   - 222: {fileID: 1579010651}
   - 114: {fileID: 1579010650}
   m_Layer: 5
-  m_Name: Stern1
+  m_Name: SternM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,8 +1161,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2126006857}
   m_RootOrder: 7
-  m_AnchorMin: {x: 0.115, y: 0.75}
-  m_AnchorMax: {x: 0.245, y: 0.9}
+  m_AnchorMin: {x: 0.15, y: 0.75}
+  m_AnchorMax: {x: 0.25, y: 0.9}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1128,7 +1185,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 2800000, guid: fa42373f625cfc5469bc28dcd15cf4ef, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1422,6 +1479,7 @@ GameObject:
   - 223: {fileID: 2126006856}
   - 114: {fileID: 2126006855}
   - 114: {fileID: 2126006854}
+  - 114: {fileID: 2126006858}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1504,6 +1562,7 @@ RectTransform:
   - {fileID: 1341101571}
   - {fileID: 370978748}
   - {fileID: 1579010649}
+  - {fileID: 911600040}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -1511,3 +1570,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2126006858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126006853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b40a7adbb88260428a1408a07cf270a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SternM: {fileID: 1579010650}
+  SternT: {fileID: 911600041}
