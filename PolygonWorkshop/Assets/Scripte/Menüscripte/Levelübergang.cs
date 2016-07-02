@@ -9,11 +9,14 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Levelübergang : MonoBehaviour
 {
     public Text text;
-
+    private CanvasRenderer EPBalken;
 
     void Start()
     {
         text.text = "Level: " + GameManager.gameManager.lvl;
+        EPBalken = GameObject.Find("EPBalken").GetComponent<CanvasRenderer>();
+        Material mat = EPBalken.GetMaterial();
+        mat.SetFloat("_Swipe",0.5f);
     }
    
     // Is called when changing a szene

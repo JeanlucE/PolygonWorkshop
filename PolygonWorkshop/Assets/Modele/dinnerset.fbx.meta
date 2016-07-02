@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: ed2ff11726d47aa44b2570bf9df00f14
+timeCreated: 1467491580
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: argeplate
+    100002: bowl
+    100004: //RootNode
+    100006: fork
+    100008: glas
+    100010: knife
+    100012: largespoon
+    100014: mediumplate
+    100016: redwineglas
+    100018: smallspoon
+    100020: teecup
+    100022: teecupplate
+    100024: tekopp:polySurface1
+    100026: tekopp:polySurface2
+    100028: whitewineglas
+    400000: argeplate
+    400002: bowl
+    400004: //RootNode
+    400006: fork
+    400008: glas
+    400010: knife
+    400012: largespoon
+    400014: mediumplate
+    400016: redwineglas
+    400018: smallspoon
+    400020: teecup
+    400022: teecupplate
+    400024: tekopp:polySurface1
+    400026: tekopp:polySurface2
+    400028: whitewineglas
+    2300000: argeplate
+    2300002: bowl
+    2300004: fork
+    2300006: glas
+    2300008: knife
+    2300010: largespoon
+    2300012: mediumplate
+    2300014: redwineglas
+    2300016: smallspoon
+    2300018: teecupplate
+    2300020: tekopp:polySurface1
+    2300022: tekopp:polySurface2
+    2300024: whitewineglas
+    3300000: argeplate
+    3300002: bowl
+    3300004: fork
+    3300006: glas
+    3300008: knife
+    3300010: largespoon
+    3300012: mediumplate
+    3300014: redwineglas
+    3300016: smallspoon
+    3300018: teecupplate
+    3300020: tekopp:polySurface1
+    3300022: tekopp:polySurface2
+    3300024: whitewineglas
+    4300000: largespoon
+    4300002: fork
+    4300004: knife
+    4300006: smallspoon
+    4300008: glas
+    4300010: tekopp:polySurface1
+    4300012: tekopp:polySurface2
+    4300014: teecupplate
+    4300016: mediumplate
+    4300018: bowl
+    4300020: argeplate
+    4300022: redwineglas
+    4300024: whitewineglas
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
