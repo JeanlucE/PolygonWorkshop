@@ -18,6 +18,10 @@ public class Memory_Tile : MonoBehaviour {
 
     public void OnClick()
     {
+        //Wenn gerade 2 angezeigt werden keinen click akzeptieren
+        if (GameObject.FindGameObjectWithTag("Overlay").GetComponent<Canvas>().enabled == true)
+            return;
+
         Text t = GetComponentInChildren<Text>();
         t.text = titel;
         open = true;
