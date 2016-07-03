@@ -42,7 +42,7 @@ public class Overlay : MonoBehaviour {
             }
             else
             {
-                Memory_Manager.score = Math.Ceiling(0.9f * ((float) Memory_Manager.score));
+                Memory_Manager.score =(int)  Math.Ceiling(0.9f * ((float) Memory_Manager.score));
                 Debug.Log("Score: " + Memory_Manager.score);
             }
         }
@@ -73,7 +73,7 @@ public class Overlay : MonoBehaviour {
                 }
                 else
                 {
-                    Memory_Manager.score = Math.Ceiling(0.9f * ((float)Memory_Manager.score));
+                    Memory_Manager.score = (int) Math.Ceiling(0.9f * ((float)Memory_Manager.score));
                     Debug.Log("Score: " + Memory_Manager.score);
                 }
             }
@@ -107,6 +107,8 @@ public class Overlay : MonoBehaviour {
             Debug.Log("Win!");
             GameObject endScreen = GameObject.FindGameObjectWithTag("EndScreen");
             endScreen.GetComponent<EndScreen>().displayEndScreen(Memory_Manager.score);
+            GameObject gamecontrol = GameObject.FindGameObjectWithTag("GameController");
+            gamecontrol.GetComponent<GameManager>().AddPoints(Memory_Manager.score, 0);
             return; //WIN
         }
     }

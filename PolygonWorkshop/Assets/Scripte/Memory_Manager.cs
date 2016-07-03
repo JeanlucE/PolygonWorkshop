@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Memory_Manager : MonoBehaviour {
 
-    public static double score = 0;
+    public static int score = 0;
     public static string[] titel = {
         "1a",
         "2a",
