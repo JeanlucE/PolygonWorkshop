@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour {
         if (firstWinOfDayCheck(ID))
         {
             ep += EP * 2;
+            time[ID] = System.DateTime.Now;
         }
         else
         {
