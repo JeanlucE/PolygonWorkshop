@@ -12,11 +12,13 @@ public class Overlay : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+
+    }
 
     public void make(string a, string b)
     {
+        Debug.Log("make");
+        //check if a is a number
         int ia;
         try
         {
@@ -28,12 +30,23 @@ public class Overlay : MonoBehaviour {
         }
         if(ia != -1)
         {
-            if(Memory_Manager.titel[ia].Equals(b))
+            Debug.Log("make a: " + a + " is a number");
+            //check if the tiles match
+            if (Memory_Manager.titel[ia - 1].Equals(b))
             {
+                Debug.Log("match");
                 //Match
                 disableTiles(a, b);
+                Memory_Manager.score += 10;
+                Debug.Log("Score: " + Memory_Manager.score);
+            }
+            else
+            {
+                Memory_Manager.score = Math.Ceiling(0.9f * ((float) Memory_Manager.score));
+                Debug.Log("Score: " + Memory_Manager.score);
             }
         }
+        //check if b is a number
         else
         {
             int ib;
@@ -48,10 +61,20 @@ public class Overlay : MonoBehaviour {
             }
             if(ib != -1)
             {
-                if(Memory_Manager.titel[ib].Equals(a))
+                Debug.Log("make b: " + b + " is a number");
+                //check if the tiles match
+                if (Memory_Manager.titel[ib - 1].Equals(a))
                 {
+                    Debug.Log("match");
                     //Match
                     disableTiles(a, b);
+                    Memory_Manager.score += 10;
+                    Debug.Log("Score: " + Memory_Manager.score);
+                }
+                else
+                {
+                    Memory_Manager.score = Math.Ceiling(0.9f * ((float)Memory_Manager.score));
+                    Debug.Log("Score: " + Memory_Manager.score);
                 }
             }
         }
@@ -63,6 +86,7 @@ public class Overlay : MonoBehaviour {
 
     private void disableTiles(string a, string b)
     {
+        Debug.Log("disable Tiles: " + a + "   " + b);
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
         foreach(GameObject tile in tiles)
         {
@@ -72,13 +96,18 @@ public class Overlay : MonoBehaviour {
             }
         }
         checkWin();
-
     }
 
     private void checkWin()
     {
+        Debug.Log("Check win");
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
         if (tiles.Length == 0)
+        {
+            Debug.Log("Win!");
+            GameObject endScreen = GameObject.FindGameObjectWithTag("EndScreen");
+            endScreen.GetComponent<EndScreen>().displayEndScreen(Memory_Manager.score);
             return; //WIN
+        }
     }
 }
