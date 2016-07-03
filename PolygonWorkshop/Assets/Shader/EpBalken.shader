@@ -50,7 +50,7 @@
 		fixed4 col = tex2D(_MainTex, i.uv);
 
 	if (_Swipe > i.uv.x)
-		col.rgb += _Color.rgb * _Color.a;
+		col.rgb = _Color.rgb * _Color.a;
 
 	return col;
 	}

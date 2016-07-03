@@ -9,14 +9,15 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Levelübergang : MonoBehaviour
 {
     public Text text;
-    private CanvasRenderer EPBalken;
+    private Image EPBalken;
 
     void Start()
     {
         text.text = "Level: " + GameManager.gameManager.lvl;
-        EPBalken = GameObject.Find("EPBalken").GetComponent<CanvasRenderer>();
-        Material mat = EPBalken.GetMaterial();
-        mat.SetFloat("_Swipe",0.5f);
+        lvlCheck();
+        EPBalken = GameObject.Find("EPBalken").GetComponent<Image>();
+        Material mat = EPBalken.material;
+        mat.SetFloat("_Swipe",SwipeByEP());
     }
    
     // Is called when changing a szene
@@ -40,9 +41,23 @@ public class Levelübergang : MonoBehaviour
         {
             GameManager.gameManager.lvl = 1;
         }
-        GameManager.gameManager.lvl = Math.Round(GameManager.gameManager.lvl,MidpointRounding.AwayFromZero);
+        // Rundet das lvl auf eine ganze Zahl
+        int i =(int)GameManager.gameManager.lvl;
+        GameManager.gameManager.lvl = i;
         
     }
+    float SwipeByEP()
+    {
+        if (GameManager.gameManager.lvl == 1)
+        {
+            // Bei anderem lvl System muss hinterer teilgeändet werden.
+            return (float)GameManager.gameManager.ep / (float)(Math.Pow(2d,2d)*100d);
+        }
+        float epSince =(float)( GameManager.gameManager.ep - (Math.Pow(2d, GameManager.gameManager.lvl) * 100d));
+        float nextLvlEp = (float)((Math.Pow(2d, GameManager.gameManager.lvl + 1) * 100d) - (Math.Pow(2d, GameManager.gameManager.lvl) * 100d));
+        return (float)epSince/nextLvlEp ;
+    }
+
   
     //Saves the Ep und lvl to a file
     public static void Save()
@@ -101,6 +116,7 @@ public class Levelübergang : MonoBehaviour
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/" + fileName + ".dat", FileMode.Open);
             firstWin data = (firstWin)bf.Deserialize(file);
+            GameManager.gameManager.time[ID] = new DateTime(System.DateTime.Now.Year,System.DateTime.Now.Month,data.day,data.hour,data.minute,System.DateTime.Now.Second);
         }
         else
         {

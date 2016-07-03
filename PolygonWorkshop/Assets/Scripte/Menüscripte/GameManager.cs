@@ -41,8 +41,17 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    // 0 Memory 1 Tischdecken
     public void AddPoints(int EP, int ID)
     {
+        if (firstWinOfDayCheck(ID))
+        {
+            ep += EP * 2;
+        }
+        else
+        {
+            ep += EP;
+        }
     }
     public double getEP()
     {
