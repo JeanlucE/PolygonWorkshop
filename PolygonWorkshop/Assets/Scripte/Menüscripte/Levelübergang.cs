@@ -18,7 +18,7 @@ public class Levelübergang : MonoBehaviour
         EPBalken = GameObject.Find("EPBalken").GetComponent<Image>();
         Material mat = EPBalken.material;
         mat.SetFloat("_Swipe",SwipeByEP());
-
+     
     }
     
     //*----------------------------------Menu methods
@@ -63,8 +63,8 @@ public class Levelübergang : MonoBehaviour
         return (float)epSince/nextLvlEp ;
     }
     //**------------------------------------- Highscore
-    // Überprüft ob der spieler den Highscore geknackt hat und fügt ihn in diesen ein.
-    public static bool HighscoreCheck(int newScore, string Name, int ID)
+    // updates the highscore
+    public static void HighscoreCheck(int newScore, string Name, int ID)
     {
         if (newScore > GameManager.gameManager.highscore[ID][GameManager.gameManager.highscore[ID].Length-1])
         {
@@ -83,10 +83,16 @@ public class Levelübergang : MonoBehaviour
                     GameManager.gameManager.highscoreName[ID][i + 1] = scoreName;
                 }
             }
+        }
+    }
+    // Checks if highscore was broke
+    public static bool brokeHighscore(int newScore, int ID)
+    {
+        if (newScore > GameManager.gameManager.highscore[ID][GameManager.gameManager.highscore[ID].Length - 1])
+        {
             return true;
         }
         return false;
-
     }
 
 

@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public double ep;
     public double lvl;
     public int[][] highscore = new int[2][];
     public string[][] highscoreName = new string[2][];
-    // Zeitstempel fürs Memory
+    // Zeitstempel 
     public System.DateTime[] time = new System.DateTime[2];
-    // Zeitstempel fürs Tischdecken
- //   public System.DateTime timeT;
+    // Canvas for Highscore names
+    public int eptemp;
+    public int IDtemp;
 
     public static GameManager gameManager;
     void Awake()
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour {
     // 0 Memory 1 Tischdecken
     public void AddPoints(int EP, int ID)
     {
+       
         if (firstWinOfDayCheck(ID))
         {
             ep += EP * 2;
@@ -61,6 +64,16 @@ public class GameManager : MonoBehaviour {
         else
         {
             ep += EP;
+        }
+        if (Levelübergang.brokeHighscore(EP, ID))
+        {
+            IDtemp = ID;
+            eptemp = EP;
+            SceneManager.LoadScene("nameenter");
+        }
+        else
+        {
+            SceneManager.LoadScene("Levelauswahl");
         }
     }
     public double getEP()
