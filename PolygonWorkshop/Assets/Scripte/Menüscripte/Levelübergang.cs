@@ -18,8 +18,10 @@ public class Levelübergang : MonoBehaviour
         EPBalken = GameObject.Find("EPBalken").GetComponent<Image>();
         Material mat = EPBalken.material;
         mat.SetFloat("_Swipe",SwipeByEP());
+
     }
-   
+    
+    //*----------------------------------Menu methods
     // Is called when changing a szene
     public void starten(string name)
     {
@@ -32,6 +34,8 @@ public class Levelübergang : MonoBehaviour
         Save();
         Application.Quit();
     }
+
+    //**-------------------------------- Lvl Methods
     //Checks if the lvl is still consistent with the EP
     void lvlCheck()
     {
@@ -46,6 +50,7 @@ public class Levelübergang : MonoBehaviour
         GameManager.gameManager.lvl = i;
         
     }
+    // Fils the Epbar by Ep
     float SwipeByEP()
     {
         if (GameManager.gameManager.lvl == 1)
@@ -57,8 +62,35 @@ public class Levelübergang : MonoBehaviour
         float nextLvlEp = (float)((Math.Pow(2d, GameManager.gameManager.lvl + 1) * 100d) - (Math.Pow(2d, GameManager.gameManager.lvl) * 100d));
         return (float)epSince/nextLvlEp ;
     }
+    //**------------------------------------- Highscore
+    // Überprüft ob der spieler den Highscore geknackt hat und fügt ihn in diesen ein.
+    public static bool HighscoreCheck(int newScore, string Name, int ID)
+    {
+        if (newScore > GameManager.gameManager.highscore[ID][GameManager.gameManager.highscore[ID].Length-1])
+        {
+            GameManager.gameManager.highscore[ID][GameManager.gameManager.highscore[ID].Length-1] = newScore;
+            GameManager.gameManager.highscoreName[ID][GameManager.gameManager.highscore[ID].Length-1] = Name;
+            for (int i = GameManager.gameManager.highscore[ID].Length - 2; i >= 0; i--)
+            {
+                if (GameManager.gameManager.highscore[ID][i] < GameManager.gameManager.highscore[ID][i + 1])
+                {
+                    // tauscht die highscores
+                    int score = GameManager.gameManager.highscore[ID][i];
+                    string scoreName = GameManager.gameManager.highscoreName[ID][i];
+                    GameManager.gameManager.highscore[ID][i] = GameManager.gameManager.highscore[ID][i + 1];
+                    GameManager.gameManager.highscoreName[ID][i] = GameManager.gameManager.highscoreName[ID][i + 1];
+                    GameManager.gameManager.highscore[ID][i + 1] = score;
+                    GameManager.gameManager.highscoreName[ID][i + 1] = scoreName;
+                }
+            }
+            return true;
+        }
+        return false;
 
-  
+    }
+
+
+  //**----------------------------------------------- Save and Load
     //Saves the Ep und lvl to a file
     public static void Save()
     {
@@ -71,7 +103,10 @@ public class Levelübergang : MonoBehaviour
         file.Close();
         SaveFirstWin("Memory", 0);
         SaveFirstWin("Tischdecken",1);
+        SaveHighscore("highscore0",0);
+        SaveHighscore("highscore1",1);
     }
+    // Saves the first win of the Daydata
     private static void SaveFirstWin(string fileName, int ID)
     {
         BinaryFormatter bf = new BinaryFormatter();
@@ -85,6 +120,19 @@ public class Levelübergang : MonoBehaviour
         bf.Serialize(file, data);
         file.Close();
 
+    }
+    private static void SaveHighscore(string fileName, int ID)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath+"/"+fileName+".dat");
+        highscoreData data = new highscoreData();
+        for (int i = 0; i < GameManager.gameManager.highscore[ID].Length; i++)
+        {
+            data.scores[i] = GameManager.gameManager.highscore[ID][i];
+            data.scoresName[i] = GameManager.gameManager.highscoreName[ID][i];
+        }
+        bf.Serialize(file, data);
+        file.Close();
     }
 
     // Loads the Ep und lvl form a file
@@ -106,6 +154,8 @@ public class Levelübergang : MonoBehaviour
         }
         LoadFirstWin("Memory",0);
         LoadFirstWin("Tischdecken", 1);
+        LoadHighscore("highscore0",0);
+        LoadHighscore("highscore1", 1);
     }
     // ID 0 Memory, ID 1 Tischdecken
     // Läd die Firstwin of the Day daten
@@ -125,8 +175,43 @@ public class Levelübergang : MonoBehaviour
         }
     }
 
+    static void LoadHighscore(string fileName, int ID)
+    {
+        if (File.Exists(Application.persistentDataPath + "/" + fileName + ".dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/" + fileName + ".dat", FileMode.Open);
+            highscoreData data = (highscoreData)bf.Deserialize(file);
+            for (int i = 0; i < GameManager.gameManager.highscore[ID].Length; i++)
+            {
+                GameManager.gameManager.highscore[ID][i] = data.scores[i];
+                GameManager.gameManager.highscoreName[ID][i] = data.scoresName[i];
+            }
+
+        }
+        else
+        {
+            for (int i = 0;i<GameManager.gameManager.highscore[ID].Length;i++)
+            {           
+                GameManager.gameManager.highscore[ID][i] = 50 * (GameManager.gameManager.highscore[ID].Length-1- i)+50;
+            }
+            GameManager.gameManager.highscoreName[ID][0] = "Bert";
+            GameManager.gameManager.highscoreName[ID][1] = "Hans";
+            GameManager.gameManager.highscoreName[ID][2] = "Susanne";
+            GameManager.gameManager.highscoreName[ID][3] = "Tom";
+            GameManager.gameManager.highscoreName[ID][4] = "Tim";
+        }
+    }
+
 }
 //
+[Serializable]
+class highscoreData
+{
+    public int[] scores=new int[GameManager.gameManager.highscore[0].Length];
+    public string[] scoresName = new string[GameManager.gameManager.highscore[0].Length];
+}
+
 [Serializable]
 class epData
 {
