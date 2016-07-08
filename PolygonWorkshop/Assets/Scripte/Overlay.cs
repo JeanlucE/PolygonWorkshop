@@ -107,8 +107,6 @@ public class Overlay : MonoBehaviour {
             Debug.Log("Win!");
             GameObject endScreen = GameObject.FindGameObjectWithTag("EndScreen");
             endScreen.GetComponent<EndScreen>().displayEndScreen(Memory_Manager.score);
-            GameObject gamecontrol = GameObject.FindGameObjectWithTag("GameController");
-            gamecontrol.GetComponent<GameManager>().AddPoints(Memory_Manager.score, 0);
             return; //WIN
         }
     }

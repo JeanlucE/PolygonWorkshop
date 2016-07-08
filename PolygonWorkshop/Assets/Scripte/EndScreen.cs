@@ -16,7 +16,7 @@ public class EndScreen : MonoBehaviour
     void Update()
     {
 
-    }    
+    }
 
     public void displayEndScreen(double score)
     {

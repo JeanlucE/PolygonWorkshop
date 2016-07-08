@@ -17,4 +17,11 @@ public class CloseOverlay : MonoBehaviour {
     {
         gameObject.GetComponentInParent<Canvas>().enabled = false;
     }
+
+    //only use for the end game screen
+    public void exitGame()
+    {
+        GameObject gamecontrol = GameObject.FindGameObjectWithTag("GameController");
+        gamecontrol.GetComponent<GameManager>().AddPoints(Memory_Manager.score, 0);
+    }
 }
