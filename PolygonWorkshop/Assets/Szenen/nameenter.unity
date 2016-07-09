@@ -182,8 +182,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2126006857}
   m_RootOrder: 4
-  m_AnchorMin: {x: 0.2, y: 0.7}
-  m_AnchorMax: {x: 0.8, y: 0.95}
+  m_AnchorMin: {x: 0.18, y: 0.7}
+  m_AnchorMax: {x: 0.82, y: 0.95}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -221,7 +221,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'You are in the highscore
 
-    Please Enter your name'
+    Please Enter your name below'
 --- !u!222 &77176268
 CanvasRenderer:
   m_ObjectHideFlags: 0

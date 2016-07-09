@@ -37,7 +37,7 @@ public class Levelübergang : MonoBehaviour
 
     //**-------------------------------- Lvl Methods
     //Checks if the lvl is still consistent with the EP
-    void lvlCheck()
+   public static void lvlCheck()
     {
         // By ~300Ep lvl 2
         GameManager.gameManager.lvl = Math.Log((GameManager.gameManager.getEP()/100.0d), 2);

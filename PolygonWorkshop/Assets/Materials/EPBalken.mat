@@ -94,7 +94,7 @@ Material:
       data:
         first:
           name: _Swipe
-        second: 0
+        second: 0.415
       data:
         first:
           name: _Parallax

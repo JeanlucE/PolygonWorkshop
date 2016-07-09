@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
     // 0 Memory 1 Tischdecken
     public void AddPoints(int EP, int ID)
     {
-       
+        Debug.Log("Hallo");
         if (firstWinOfDayCheck(ID))
         {
             ep += EP * 2;
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour {
         {
             SceneManager.LoadScene("Levelauswahl");
         }
+        Levelübergang.lvlCheck();
     }
     public double getEP()
     {
