@@ -33,12 +33,9 @@ public class GameManager : MonoBehaviour {
         }
 
     }
-    void Update()
+    void Start()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Levelauswahl");
-        }
+
     }
     // übergib GameID 0 Memory, 1 Tischdecken
     public bool firstWinOfDayCheck(int ID)
