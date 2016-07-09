@@ -16,32 +16,16 @@ public class Memory_Manager : MonoBehaviour {
         "8a",
         "9a",
         "10a",
-        "11a",
-        "12a",
-        "13a",
-        "14a",
-        "15a",
-        "16a",
-        "17a",
-        "18a"
     };
      /*public static string[] titel = {
         "Beef Tapar",
         "Jakobsmuscheln",
         "Riesengarnelen",
-        "Ziegenkäse & Apfel",
-        "Junge Blattsalate",
-        "Beef Tea",
 
         "USDA Prime Beef",
-        "Auswahl verschiedener dry-aged Steaks",
         "Spanferkelrücken",
-        "Lammkarree \"Donald Russell\"",
-        "Stubenküken \"Piri Piri\"",
-        "Fleischplatte für 2 Personen",
         "Hummer",
         "Meeresfrüchte für 2 Personen",
-        "Regionaler Fisch vom Forellenhof Nadler aus Eching bei München",
 
         "Key Lime Pie",
         "Créme Brûlée",
@@ -54,13 +38,13 @@ public class Memory_Manager : MonoBehaviour {
     void Start()
     {
         GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
-        int[] ids = new int[36];
-        for (int i = 0; i < 18; i++)
+        int[] ids = new int[20];
+        for (int i = 0; i < 10; i++)
         {
-            int rid = (int)(Random.value * 36) % 36;
+            int rid = (int)(Random.value * 20) % 20;
             while (ids[rid] == 1)
             {
-                rid = (int)(Random.value * 36) % 36;
+                rid = (int)(Random.value * 20) % 20;
             }
             ids[rid]++;
             tiles[rid].GetComponent<Memory_Tile>().titel = titel[i];
@@ -68,12 +52,12 @@ public class Memory_Manager : MonoBehaviour {
         }
         //for (int i = 0; i < 18; i++)
         //start with 1
-        for (int i = 1; i <= 18; i++)
+        for (int i = 1; i <= 10; i++)
         {
-            int rid = (int)(Random.value * 36) % 36;
+            int rid = (int)(Random.value * 20) % 20;
             while (ids[rid] == 1)
             {
-                rid = (int)(Random.value * 36) % 36;
+                rid = (int)(Random.value * 20) % 20;
             }
             ids[rid]++;
             tiles[rid].GetComponent<Memory_Tile>().titel = "" + i;
