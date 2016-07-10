@@ -2,24 +2,22 @@
 using System.Collections;
 
 public class ItemMovement : MonoBehaviour {
-    private Vector3 screenPoint;
-    private Vector3 offset;
-
+    
     public float ItemHeightOffset;
-
-    private float height;
-
+    public float LockAnimationTime;
+    public AnimationCurve LockAnimationCurve;
+    
     [HideInInspector]
     public bool Moveable;
 
-
+    private Vector3 screenPoint;
+    private Vector3 offset;
+    private float height;
 
     // Use this for initialization
     void Start(){
         height = transform.position.y;
     }
-
-
 
     void OnMouseDown(){
         if (Moveable){
@@ -35,7 +33,7 @@ public class ItemMovement : MonoBehaviour {
 
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint) + offset;
             currentPosition.y = height;
-            transform.position = currentPosition;
+            transform.position = Vector3.Lerp(transform.position, currentPosition, 0.4f);
         }
     }
 
@@ -43,10 +41,23 @@ public class ItemMovement : MonoBehaviour {
         GetComponentInParent<ItemControl>().checkForTargetLocation(gameObject.transform.position);
     }
 
-
     public void moveToTarget(Vector3 target) {
         Vector3 newPos = target;
-        newPos.y = newPos.y + ItemHeightOffset;
-        transform.position = newPos;     
+        //newPos.y = newPos.y + ItemHeightOffset;
+        //transform.position = newPos;
+        StartCoroutine(MoveToTargetLerp(newPos));   
+    }
+    
+    private IEnumerator MoveToTargetLerp(Vector3 target)
+    {
+        
+        Vector3 startPos = transform.position;
+        float startTime = Time.time;
+        float endTime = Time.time + LockAnimationTime;
+        while (Time.time < endTime)
+        {
+            transform.position = Vector3.Lerp(startPos, target, LockAnimationCurve.Evaluate((Time.time - startTime) / LockAnimationTime));
+            yield return null;
+        }
     }
 }

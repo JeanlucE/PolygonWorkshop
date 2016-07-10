@@ -12,7 +12,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Szenen/Memory.unity
   - enabled: 1
-    path: Assets/Szenen/Tischdecken.unity
+    path: Assets/Szenen/TischdeckenTutorial.unity
   - enabled: 1
     path: Assets/Szenen/Highscore.unity
   - enabled: 1
