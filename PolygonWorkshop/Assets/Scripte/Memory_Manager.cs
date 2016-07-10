@@ -6,16 +6,16 @@ public class Memory_Manager : MonoBehaviour {
 
     public static int score = 0;
     public static string[] titel = {
-        "1a",
-        "2a",
-        "3a",
-        "4a",
-        "5a",
-        "6a",
-        "7a",
-        "8a",
-        "9a",
-        "10a",
+        "Beet & Fennel Salad",
+        "Charcuterie",
+        "Dungeness Crab Cakes",
+        "King Salmon",
+        "Hanger Steak",
+        "Rib Eye Steak",
+        "Chocolate Slice",
+        "Prawns",
+        "Macaroons & Dipping Sauce",
+        "Tiramisu",
     };
      /*public static string[] titel = {
         "Beef Tapar",
