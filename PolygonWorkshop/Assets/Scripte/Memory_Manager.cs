@@ -7,7 +7,7 @@ public class Memory_Manager : MonoBehaviour {
     public static int score = 0;
     public static int openTiles = 0;
     //Debug only
-    public static string[] titel = {
+    /*public static string[] titel = {
         "1a",
         "2a",
         "3a",
@@ -19,8 +19,8 @@ public class Memory_Manager : MonoBehaviour {
         "9a",
         "10a"
     };
+    */
     
-    /*
     public static string[] titel = {
        "Beet & Fennel Salad",
        "Charcuterie",
@@ -33,7 +33,7 @@ public class Memory_Manager : MonoBehaviour {
        "Macaroons & Dipping Sauce",
        "Tiramisu",
        };
-    */
+    
     // Use this for initialization
     void Start()
     {

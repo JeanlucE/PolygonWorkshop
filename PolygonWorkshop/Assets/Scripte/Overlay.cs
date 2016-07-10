@@ -37,12 +37,12 @@ public class Overlay : MonoBehaviour {
                 Debug.Log("match");
                 //Match
                 disableTiles(a, b);
-                Memory_Manager.score += 10;
+                Memory_Manager.score += 20;
                 Debug.Log("Score: " + Memory_Manager.score);
             }
             else
             {
-                Memory_Manager.score =(int)  Math.Ceiling(0.9f * ((float) Memory_Manager.score));
+                Memory_Manager.score =(int)  Math.Ceiling(0.8f * ((float) Memory_Manager.score));
                 Debug.Log("Score: " + Memory_Manager.score);
             }
         }
@@ -68,12 +68,12 @@ public class Overlay : MonoBehaviour {
                     Debug.Log("match");
                     //Match
                     disableTiles(a, b);
-                    Memory_Manager.score += 10;
+                    Memory_Manager.score += 20;
                     Debug.Log("Score: " + Memory_Manager.score);
                 }
                 else
                 {
-                    Memory_Manager.score = (int) Math.Ceiling(0.9f * ((float)Memory_Manager.score));
+                    Memory_Manager.score = (int) Math.Ceiling(0.8f * ((float)Memory_Manager.score));
                     Debug.Log("Score: " + Memory_Manager.score);
                 }
             }
