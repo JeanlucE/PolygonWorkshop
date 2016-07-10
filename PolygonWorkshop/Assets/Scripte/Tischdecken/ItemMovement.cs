@@ -9,7 +9,7 @@ public class ItemMovement : MonoBehaviour {
 
     private float height;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool Moveable;
 
 
@@ -47,7 +47,6 @@ public class ItemMovement : MonoBehaviour {
     public void moveToTarget(Vector3 target) {
         Vector3 newPos = target;
         newPos.y = newPos.y + ItemHeightOffset;
-        transform.position = newPos;
-       
+        transform.position = newPos;     
     }
 }

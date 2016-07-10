@@ -8,7 +8,7 @@ public class ItemControl : MonoBehaviour {
     public bool MovementAllowed;
 
     //[HideInInspector]
-    public float targetLockRadius;
+    public float targetLockRadius;  //this value is used for the distance a item snaps to its target, propably it should be set globaly in Tischdecken_Manager
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +31,7 @@ public class ItemControl : MonoBehaviour {
         Item.Moveable = true;
 
 
-        //select
+        //select animation?
     }
 
     public void lockItem(){
@@ -39,7 +39,7 @@ public class ItemControl : MonoBehaviour {
         Item.Moveable = false;
 
 
-        //deselect
+        //deselect animation?
     }
 
 
@@ -49,6 +49,7 @@ public class ItemControl : MonoBehaviour {
         Item.gameObject.GetComponent<MeshRenderer>().enabled = true;
 
 
+        //move to the playing height
         Vector3 playPos = transform.position;
         playPos.y = playPos.y + 6;
         transform.position = playPos;
@@ -61,6 +62,7 @@ public class ItemControl : MonoBehaviour {
         Item.gameObject.GetComponent<MeshRenderer>().enabled = false;
 
 
+        //move the a save height so it doesnt interfere with other colliders while deactivated
         Vector3 savePos = transform.position;
         savePos.y = savePos.y - 6;
         transform.position = savePos;
@@ -77,12 +79,14 @@ public class ItemControl : MonoBehaviour {
 
 
             GetComponentInParent<Tischdecken_Manager>().getNextItem();
-            //add Points, check item in List, spawn New item
+            //add Points, check item in List etc. (do the stuff you want to do when a new item spawns)
+            //when this is the last item -> behaviour in Tischdecken_Manager.getNextitem()
         }
     }
 
 
 
+    //draw editor Gizmo for Target
     void OnDrawGizmos(){
         Gizmos.color = new Color(1, 0, 0, 0.5f);
 
