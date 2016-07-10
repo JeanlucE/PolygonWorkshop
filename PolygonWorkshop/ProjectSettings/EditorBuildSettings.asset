@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Szenen/nameenter.unity
   - enabled: 0
     path: Assets/Szenen/Startbildschirm.unity
+  - enabled: 1
+    path: Assets/Szenen/Tischdecken.unity
