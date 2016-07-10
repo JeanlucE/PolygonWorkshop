@@ -18,22 +18,32 @@ public class Memory_Tile : MonoBehaviour {
 
     public void OnClick()
     {
-        //Wenn gerade 2 angezeigt werden keinen click akzeptieren
-        //auskommentiert, da sonst spielstopp nach den ersten beiden tiles
-        //if (GameObject.FindGameObjectWithTag("Overlay").GetComponent<Canvas>().enabled == true)
-        //    return;
+        GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
+        if (Memory_Manager.openTiles == 2)
+        {
+            foreach (GameObject go in tiles)
+            {
+                if (go.GetComponent<Memory_Tile>().open)
+                {
+                    go.GetComponent<Memory_Tile>().FlipBack();
+                }
+            }
+            Memory_Manager.openTiles = 0;
+        }
+
         Text t = GetComponentInChildren<Text>();
         t.text = titel;
         open = true;
+        Memory_Manager.openTiles++;
 
-        GameObject[] tiles = GameObject.FindGameObjectsWithTag("Memorytile");
-        foreach(GameObject go in tiles)
+        if (Memory_Manager.openTiles == 2)
         {
-            if(go.GetComponent<Memory_Tile>().open && go != this.gameObject)
+            foreach (GameObject go in tiles)
             {
-                GameObject.FindGameObjectWithTag("Overlay").GetComponent<Overlay>().make(go.GetComponent<Memory_Tile>().titel, titel);
-                FlipBack();
-                go.GetComponent<Memory_Tile>().FlipBack();
+                if (go.GetComponent<Memory_Tile>().open && go != this.gameObject)
+                {
+                    GameObject.FindGameObjectWithTag("Overlay").GetComponent<Overlay>().make(go.GetComponent<Memory_Tile>().titel, titel);
+                }
             }
         }
     }

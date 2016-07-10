@@ -99,9 +99,9 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: a2e4f32dc48098a4fa1cf8217d376a23, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 60
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 0.9852941, b: 0.9852941, a: 1}
+    m_NormalColor: {r: 0.9264706, g: 0.9264706, b: 0.9264706, a: 1}
     m_HighlightedColor: {r: 0.7764706, g: 0, b: 0.23921569, a: 1}
     m_PressedColor: {r: 0.7764706, g: 0, b: 0.23921569, a: 1}
     m_DisabledColor: {r: 0, g: 0, b: 0, a: 1}
