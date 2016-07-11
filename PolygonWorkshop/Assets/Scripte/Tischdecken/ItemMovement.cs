@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class ItemMovement : MonoBehaviour {
-    
-    public float ItemHeightOffset;
+   
     public float LockAnimationTime;
     public AnimationCurve LockAnimationCurve;
     
     [HideInInspector]
     public bool Moveable;
-
+    
+    public float ItemHeightOffset;
     private Vector3 screenPoint;
     private Vector3 offset;
     private float height;
@@ -43,8 +43,6 @@ public class ItemMovement : MonoBehaviour {
 
     public void moveToTarget(Vector3 target) {
         Vector3 newPos = target;
-        //newPos.y = newPos.y + ItemHeightOffset;
-        //transform.position = newPos;
         StartCoroutine(MoveToTargetLerp(newPos));   
     }
     

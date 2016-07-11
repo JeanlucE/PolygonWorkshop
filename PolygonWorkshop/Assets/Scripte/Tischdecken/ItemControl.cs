@@ -106,7 +106,7 @@ public class ItemControl : MonoBehaviour {
         else
         {
             Vector3 t = Item.transform.position;
-            t.y = 0.5f;
+            t.y = TargetLocation.transform.position.y;
             Item.moveToTarget(t);
 
             if (!hasBeenPlacedAlready)
