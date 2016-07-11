@@ -58,7 +58,11 @@ public class GameManager : MonoBehaviour {
     // 0 Memory 1 Tischdecken
     public void AddPoints(int EP, int ID)
     {
-        Debug.Log("Hallo");
+        if (ID == 1)
+        {
+            ep *= 2;
+        }
+
         if (firstWinOfDayCheck(ID))
         {
             ep += EP * 2;

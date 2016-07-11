@@ -199,7 +199,7 @@ public class Levelübergang : MonoBehaviour
         {
             for (int i = 0;i<GameManager.gameManager.highscore[ID].Length;i++)
             {           
-                GameManager.gameManager.highscore[ID][i] = 50 * (GameManager.gameManager.highscore[ID].Length-1- i)+50;
+                GameManager.gameManager.highscore[ID][i] = 20 * (GameManager.gameManager.highscore[ID].Length-1- i)+20;
             }
             GameManager.gameManager.highscoreName[ID][0] = "Bert";
             GameManager.gameManager.highscoreName[ID][1] = "Hans";
